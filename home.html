@@ -1,0 +1,27 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home</title>
+        <link rel="stylesheet" href="home.css">
+        <script src="dados.js"></script>
+        <script src="codigo.js" defer></script>
+    </head>
+    <body>
+        <div id="container">
+            <header>
+                <h1>Ver Jogadores</h1>
+                <button id="btnSair">Sair</button>
+            </header>
+            <section>
+                <button class="botoes-jog" onclick="filtrarJogadores('MASCULINO')">MASCULINO</button>
+                <button class="botoes-jog" onclick="filtrarJogadores('FEMININO')">FEMININO</button>
+                <button class="botoes-jog" onclick="filtrarJogadores('TODOS')">VER TODOS</button>
+            </section>
+        </div>
+        <div id="carregando" style="display: none;">Carregando...</div>
+        <div id="jogadores-container"></div>
+    </body>
+    </html>
