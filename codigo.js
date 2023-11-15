@@ -1,10 +1,14 @@
 const url = "https://botafogo-atletas.mange.li/all";
 const urlmasc = "https://botafogo-atletas.mange.li/masculino";
 const urlfem = "https://botafogo-atletas.mange.li/feminino";
+
 const body = document.body;
 body.style.display = 'flex';
 body.style.gap = '.5em';
 body.style.flexWrap = 'wrap';
+
+const jogadoresContainer = document.getElementById('jogadores-container');
+const carregandoElement = document.getElementById('carregando');
 
 const preenche = (atleta) => {
     const container = document.createElement('article');
@@ -15,27 +19,41 @@ const preenche = (atleta) => {
     container.dataset.altura = atleta.altura;
     container.dataset.nome_completo = atleta.nome_completo;
     container.dataset.nascimento = atleta.nascimento;
-    container.dataset.tipo = atleta.tipo; // Adição do tipo de jogador
-
-    container.style.width = '15em';
-    container.style.backgroundColor = 'grey';
-    container.style.textAlign = 'center';
-    container.style.margin = 'auto';
+    container.dataset.tipo = atleta.tipo;
 
     titulo.innerText = atleta.nome;
     imagem.src = atleta.imagem;
     imagem.alt = `Imagem de ${atleta.nome}`;
+
+    container.addEventListener('click', handleClick);
+
     container.appendChild(titulo);
     container.appendChild(imagem);
 
-    container.onclick = handleClick;
-
-    document.getElementById('jogadores-container').appendChild(container);
-}
+    jogadoresContainer.appendChild(container);
+};
 
 const handleClick = (e) => {
     const artigo = e.target.closest('article');
-    // Restante do código permanece igual
+    //cookie
+    document.cookie = `id=${artigo.dataset.id}`;
+    document.cookie = `nome_completo=${artigo.dataset.nome_completo}`;
+    document.cookie = `nascimento=${artigo.dataset.nascimento}`;
+    document.cookie = `altura=${artigo.dataset.altura}`;
+
+    //localStorage
+    localStorage.setItem('id', artigo.dataset.id);
+    localStorage.setItem('nome_completo', artigo.dataset.nome_completo);
+    localStorage.setItem('nascimento', artigo.dataset.nascimento);
+    localStorage.setItem('altura', artigo.dataset.altura);
+    localStorage.setItem('dados-original', artigo.dataset);
+    localStorage.setItem('dados', JSON.stringify(artigo.dataset));
+
+    console.log(acha_cookie('nome_completo'));
+    console.log(localStorage.getItem('id'));
+    console.log(JSON.parse(localStorage.getItem('dados')).altura);
+
+    window.location = `outra.html?id=${artigo.dataset.id}&nome_completo=${artigo.dataset.nome_completo}`;
 }
 
 const acha_cookie = (chave) => {
