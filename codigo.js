@@ -14,29 +14,35 @@ const preenche = (atleta) => {
     const container = document.createElement('article');
     const titulo = document.createElement('h3');
     const imagem = document.createElement('img');
+    const saibaMaisButton = document.createElement('button');
 
     container.dataset.id = atleta.id;
     container.dataset.altura = atleta.altura;
     container.dataset.nome_completo = atleta.nome_completo;
     container.dataset.nascimento = atleta.nascimento;
+    container.dataset.descricao = atleta.descricao;
     container.dataset.tipo = atleta.tipo;
 
     titulo.innerText = atleta.nome;
     imagem.src = atleta.imagem;
     imagem.alt = `Imagem de ${atleta.nome}`;
 
-    container.addEventListener('click', handleClick);
+    saibaMaisButton.innerText = 'Saiba Mais';
+    saibaMaisButton.classList.add('saiba-mais-btn'); 
+    saibaMaisButton.onclick = handleClick;
 
     container.appendChild(titulo);
     container.appendChild(imagem);
+    container.appendChild(saibaMaisButton);
 
     jogadoresContainer.appendChild(container);
 };
 
 const handleClick = (e) => {
     const artigo = e.target.closest('article');
-    //cookie
+
     document.cookie = `id=${artigo.dataset.id}`;
+    document.cookie = `altura=${artigo.dataset.altura}`;
     document.cookie = `nome_completo=${artigo.dataset.nome_completo}`;
     document.cookie = `nascimento=${artigo.dataset.nascimento}`;
     document.cookie = `altura=${artigo.dataset.altura}`;
@@ -46,14 +52,11 @@ const handleClick = (e) => {
     localStorage.setItem('nome_completo', artigo.dataset.nome_completo);
     localStorage.setItem('nascimento', artigo.dataset.nascimento);
     localStorage.setItem('altura', artigo.dataset.altura);
-    localStorage.setItem('dados-original', artigo.dataset);
-    localStorage.setItem('dados', JSON.stringify(artigo.dataset));
 
-    console.log(acha_cookie('nome_completo'));
-    console.log(localStorage.getItem('id'));
-    console.log(JSON.parse(localStorage.getItem('dados')).altura);
+    console.log(acha_cookie('id')); 
+    console.log(localStorage.getItem('nome_completo')); 
 
-    window.location = `outra.html?id=${artigo.dataset.id}&nome_completo=${artigo.dataset.nome_completo}`;
+    window.location = `detalhes.html?id=${artigo.dataset.id}`;
 }
 
 const acha_cookie = (chave) => {
@@ -106,4 +109,32 @@ const filtrarJogadores = async (tipo) => {
 
 document.getElementById('btnSair').addEventListener('click', () => {
     window.location.href = 'index.html'; // Redireciona para o index.html
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const detalhesContainer = document.getElementById('detalhes-content');
+    const btnVoltar = document.getElementById('btnVoltar');
+
+    // Obter parâmetros da URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const playerId = urlParams.get('id');
+    const playerName = urlParams.get('nome_completo');
+    const playerBirthdate = urlParams.get('nascimento');
+    const playerHeight = urlParams.get('altura');
+
+    // Exibir detalhes do jogador
+    detalhesContainer.innerHTML = `
+        <h2>ID: ${playerId}</h2>
+        <h2>Nome: ${playerName}</h2>
+        <h2>Nascimento: ${playerBirthdate}</h2>
+        <h2>Altura: ${playerHeight}</h2>
+        <!-- Adicione mais detalhes conforme necessário -->
+
+    `;
+
+    // Adicionar evento de clique para o botão "Voltar"
+    btnVoltar.addEventListener('click', () => {
+        window.location.href = 'index.html'; // Substitua 'index.html' pelo caminho correto da sua página principal
+    });
 });

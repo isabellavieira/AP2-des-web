@@ -38,32 +38,13 @@ section {
     margin: 20px auto;
     width: '15em';
 }
-.botoes-jog {
-    margin-bottom: 15px;
-    padding: 15px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-weight: bold;
-    background-color: #e6e6e6;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
 
-.botoes-jog:hover {
-    background-color: #ccc;
-    transition: background-color 0.3s;
-}
 
 article {
     text-align: center;
     border-radius: 10px;
     border: 1px solid #ccc; /* Adição para tornar as bordas mais finas */
     margin: 1px;
-}
-
-#container {
-    flex-direction: column;
-    width: 100%;
 }
 
 #carregando {
@@ -115,4 +96,19 @@ article h3 {
 article img {
     max-width: 100%;
     height: auto;
+}
+
+.saiba-mais-btn {
+    margin-top: 10px; /* Ajuste a margem conforme necessário */
+    padding: 10px;
+    background-color: #3498db; /* Cor de fundo do botão */
+    color: #fff; /* Cor do texto do botão */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.saiba-mais-btn:hover {
+    background-color: #2980b9; /* Cor de fundo do botão ao passar o mouse */
 }

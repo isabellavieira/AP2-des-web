@@ -1,0 +1,27 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #b4b3b3;
+    display: flex;
+    align-items: center;
+}
+
+header {
+    background-color: #333; /* Cor de fundo preta */
+    color: #fff; /* Cor do texto branca */
+    text-align: center;
+    padding: 2em;
+    font-family: Georgia, Times, 'Times New Roman', serif;
+    width: 100vw; /* Estende por todo o viewport width */
+    box-sizing: border-box; /* Evita que o padding aumente a largura */
+}
+#btnSair {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border-radius: 10px; /* Borda arredondada */
+    cursor: pointer;
+    padding: 8px 12px; /* Adiciona algum preenchimento para melhor aparência */
+    margin-right: 20px; /* Margem à direita para afastar do lado direito */
+    background-color: #ccc; /* Cor de fundo */
+    border: 1px solid #999; /* Borda sólida */
+}   
