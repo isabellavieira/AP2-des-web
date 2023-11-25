@@ -29,7 +29,17 @@ const preenche = (atleta) => {
 
     saibaMaisButton.innerText = 'Saiba Mais';
     saibaMaisButton.classList.add('saiba-mais-btn'); 
-    saibaMaisButton.onclick = handleClick;
+
+     saibaMaisButton.style.backgroundColor = '#7a7a7a'; // Cor de fundo
+     saibaMaisButton.style.color = '#FFFFFF';  // Cor do texto
+     saibaMaisButton.style.textShadow = '#FFFFF';
+     saibaMaisButton.style.border = 'none';  // Sem borda
+     saibaMaisButton.style.padding = '10px 30px';  // Preenchimento interno
+     saibaMaisButton.style.fontWeight = 'bold';
+     saibaMaisButton.style.cursor = 'pointer';
+     saibaMaisButton.style.fontFamily = 'Franklin Gothic Medium, Arial Narrow, Arial, sans-serif';
+     saibaMaisButton.style.fontSize = '17px';
+     saibaMaisButton.onclick = handleClick;
 
     container.appendChild(titulo);
     container.appendChild(imagem);

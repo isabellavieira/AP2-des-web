@@ -98,17 +98,3 @@ article img {
     height: auto;
 }
 
-.saiba-mais-btn {
-    margin-top: 10px; /* Ajuste a margem conforme necessário */
-    padding: 10px;
-    background-color: #3498db; /* Cor de fundo do botão */
-    color: #fff; /* Cor do texto do botão */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.saiba-mais-btn:hover {
-    background-color: #2980b9; /* Cor de fundo do botão ao passar o mouse */
-}
