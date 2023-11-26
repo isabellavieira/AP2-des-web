@@ -22,6 +22,7 @@ const preenche = (atleta) => {
     container.dataset.nascimento = atleta.nascimento;
     container.dataset.descricao = atleta.descricao;
     container.dataset.tipo = atleta.tipo;
+    container.dataset.imagem = atleta.imagem;
 
     titulo.innerText = atleta.nome;
     imagem.src = atleta.imagem;
@@ -57,12 +58,15 @@ const handleClick = (e) => {
     document.cookie = `nome_completo=${artigo.dataset.nome_completo}`;
     document.cookie = `nascimento=${artigo.dataset.nascimento}`;
     document.cookie = `altura=${artigo.dataset.altura}`;
+    document.cookie = `descricao=${artigo.dataset.descricao}`;
 
     //localStorage
     localStorage.setItem('id', artigo.dataset.id);
     localStorage.setItem('nome_completo', artigo.dataset.nome_completo);
     localStorage.setItem('nascimento', artigo.dataset.nascimento);
     localStorage.setItem('altura', artigo.dataset.altura);
+    localStorage.setItem('descricao', artigo.dataset.descricao);
+    localStorage.setItem('imagem', artigo.dataset.imagem);
 
     console.log(acha_cookie('id')); 
     console.log(localStorage.getItem('nome_completo')); 
@@ -120,32 +124,4 @@ const filtrarJogadores = async (tipo) => {
 
 document.getElementById('btnSair').addEventListener('click', () => {
     window.location.href = 'index.html'; // Redireciona para o index.html
-});
-
-
-document.addEventListener('DOMContentLoaded', () => {
-    const detalhesContainer = document.getElementById('detalhes-content');
-    const btnVoltar = document.getElementById('btnVoltar');
-
-    // Obter parâmetros da URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const playerId = urlParams.get('id');
-    const playerName = urlParams.get('nome_completo');
-    const playerBirthdate = urlParams.get('nascimento');
-    const playerHeight = urlParams.get('altura');
-
-    // Exibir detalhes do jogador
-    detalhesContainer.innerHTML = `
-        <h2>ID: ${playerId}</h2>
-        <h2>Nome: ${playerName}</h2>
-        <h2>Nascimento: ${playerBirthdate}</h2>
-        <h2>Altura: ${playerHeight}</h2>
-        <!-- Adicione mais detalhes conforme necessário -->
-
-    `;
-
-    // Adicionar evento de clique para o botão "Voltar"
-    btnVoltar.addEventListener('click', () => {
-        window.location.href = 'index.html'; // Substitua 'index.html' pelo caminho correto da sua página principal
-    });
 });
