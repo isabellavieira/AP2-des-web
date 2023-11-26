@@ -4,6 +4,7 @@ body {
     padding: 0;
     background-color: #b4b3b3;
     display: flex;
+    flex-direction: column; /* Alterado para coluna para garantir que os elementos apareçam corretamente */
     align-items: center;
 }
 
@@ -13,65 +14,46 @@ header {
     text-align: center;
     padding: 2em;
     font-family: Georgia, Times, 'Times New Roman', serif;
-    width: 100%;
+    width: 100vw; /* Alterado para ocupar 100% da largura da viewport */
 }
-h1{
+
+
+h1 {
     text-align: center;
 }
+
 section {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    max-width: 500px;
-    margin: 20px auto;display: flex;
-    max-width: 440px; /* Largura máxima do grid */
+    max-width: 500px; /* Ajuste conforme necessário */
+    margin: 20px auto;
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     border-radius: 11px;
     gap: 40px;
 }
-#jogadores-container{
+
+#jogadores-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Quatro colunas com largura igual */
-    gap: 20px; /* Espaço entre os elementos */    
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
     margin: 20px auto;
-    width: '15em';
+    max-width: 1100px; /* Ajuste conforme necessário */
 }
 
-
-article {
-    text-align: center;
-    border-radius: 10px;
-    border: 1px solid #ccc; /* Adição para tornar as bordas mais finas */
-    margin: 1px;
-}
-
-#carregando {
-    color: rgb(0, 0, 0);
-    text-shadow: #333;
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    padding: 2%;
-    position: fixed;
-    top: 47%; /* Ajuste o valor conforme necessário */
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-#btnSair {
+.botoes-jog {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    border-radius: 10px; /* Borda arredondada */
+    border-radius: 10px;
     cursor: pointer;
-    padding: 8px 12px; /* Adiciona algum preenchimento para melhor aparência */
-    margin-right: 20px; /* Margem à direita para afastar do lado direito */
-    background-color: #ccc; /* Cor de fundo */
-    border: 1px solid #999; /* Borda sólida */
+    padding: 8px 12px;
+    margin-right: 20px;
+    background-color: #ccc;
+    border: 1px solid #999;
 }
 
 article {
-    width: 15em;
+    width: 100%;
     background-color: rgb(227, 227, 227);
     margin: auto;
     cursor: pointer;
@@ -79,7 +61,7 @@ article {
     overflow: hidden;
     transition: transform 0.3s;
     text-align: center;
-    border: 3px solid #ccc; /* Adição para tornar as bordas mais finas */
+    border: 3px solid #ccc;
     margin: 1px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     font-family: 'Courier New', Courier, monospace;
@@ -98,3 +80,14 @@ article img {
     height: auto;
 }
 
+#btnSair{
+    border-radius: 5px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    width: 70px;
+    padding: 10px;
+    cursor: pointer;
+}
+#btnSair:hover{
+    transform: scale(1.08);
+    background-color: #c7c7c7;
+}
