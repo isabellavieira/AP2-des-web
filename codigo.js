@@ -46,6 +46,7 @@ const preenche = (atleta) => {
     container.appendChild(saibaMaisButton);
 
     jogadoresContainer.appendChild(container);
+    saibaMaisButton.addEventListener('click', () => redirecionarParaDetalhes(atleta))
 };
 
 const handleClick = (e) => {
