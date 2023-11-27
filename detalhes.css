@@ -5,10 +5,10 @@ body {
     background-color: #b4b3b3;
     display: flex;
     align-items: center;
-    zoom:0% 
-  }
-  
-  header {
+    zoom: 0%;
+}
+
+header {
     background-color: #333;
     color: #fff;
     text-align: center;
@@ -16,22 +16,25 @@ body {
     font-family: Georgia, Times, 'Times New Roman', serif;
     width: 100vw;
     box-sizing: border-box;
-  }
-  
-  #btnSair {
+}
+
+#btnSair {
     border-radius: 5px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     width: 70px;
     padding: 10px;
     cursor: pointer;
- }
-  
-  #btnSair:hover {
+}
+
+#btnSair:hover {
     transform: scale(1.08);
     background-color: #c7c7c7;
-  }
-  
-  .info-jogador {
+}
+img {
+    padding: 5%;
+}
+
+.info-jogador {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -39,36 +42,36 @@ body {
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-  }
-  
-  @media (max-width: 768px) {
-  
+}
+#detalhes-textos {
+   padding: 5%;
+}
+@media (max-width: 768px) {
     .info-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      max-width: 700px;
-      margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 700px;
+        margin: 0 auto;
     }
-    header{
+
+    header {
         width: 100%;
-      }
-
-  }
-
-
-  @media (min-width: 768px) {
-  
-    .info-container {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      max-width: 800px;
-      margin: 0 auto;
     }
-    header{
-        width: 100vw;
-      }
+}
 
-  }
+@media (min-width: 769px) {
+    .info-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    header {
+        width: 100vw;
+    }
+}
+
   

@@ -132,3 +132,24 @@ article img {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     font-weight: bold;
 }
+
+.saiba-mais-btn {
+    background-color: #7a7a7a;
+    color: #fff;
+    text-shadow: #ffffff;
+    border: none;
+    padding: 10px 30px;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 17px;
+}
+
+.saiba-mais-btn:hover {
+    background-color: #555;
+}
+
+.botoes-jog:hover {
+    transform: scale(1.08);
+    background-color: #b2b0b0;
+}

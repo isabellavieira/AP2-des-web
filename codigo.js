@@ -3,9 +3,7 @@ const urlmasc = "https://botafogo-atletas.mange.li/masculino";
 const urlfem = "https://botafogo-atletas.mange.li/feminino";
 
 const body = document.body;
-body.style.display = 'flex';
-body.style.gap = '.5em';
-body.style.flexWrap = 'wrap';
+body.classList.add('flex-container');
 
 const jogadoresContainer = document.getElementById('jogadores-container');
 const carregandoElement = document.getElementById('carregando');
@@ -29,22 +27,14 @@ const preenche = (atleta) => {
     imagem.alt = `Imagem de ${atleta.nome}`;
 
     saibaMaisButton.innerText = 'Saiba Mais';
-    saibaMaisButton.classList.add('saiba-mais-btn'); 
-
-     saibaMaisButton.style.backgroundColor = '#7a7a7a'; // Cor de fundo
-     saibaMaisButton.style.color = '#FFFFFF';  // Cor do texto
-     saibaMaisButton.style.textShadow = '#FFFFF';
-     saibaMaisButton.style.border = 'none';  // Sem borda
-     saibaMaisButton.style.padding = '10px 30px';  // Preenchimento interno
-     saibaMaisButton.style.fontWeight = 'bold';
-     saibaMaisButton.style.cursor = 'pointer';
-     saibaMaisButton.style.fontFamily = 'Franklin Gothic Medium, Arial Narrow, Arial, sans-serif';
-     saibaMaisButton.style.fontSize = '17px';
-     saibaMaisButton.onclick = handleClick;
+    saibaMaisButton.classList.add('saiba-mais-btn');
+    saibaMaisButton.onclick = handleClick;
 
     container.appendChild(titulo);
     container.appendChild(imagem);
     container.appendChild(saibaMaisButton);
+
+    jogadoresContainer.appendChild(container);
 
     jogadoresContainer.appendChild(container);
     saibaMaisButton.addEventListener('click', () => redirecionarParaDetalhes(atleta))
