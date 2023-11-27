@@ -50,6 +50,66 @@ const preenche = (atleta) => {
     saibaMaisButton.addEventListener('click', () => redirecionarParaDetalhes(atleta))
 };
 
+document.addEventListener('DOMContentLoaded', () => {
+    ajustarResponsividade();
+    ajustarBotoesOuSelect();
+
+    window.addEventListener('resize', () => {
+        ajustarResponsividade();
+        ajustarBotoesOuSelect();
+    });
+});
+
+const ajustarResponsividade = () => {
+    const larguraJanela = window.innerWidth;
+    const detalhesContainer = document.getElementById('detalhes-content');
+    const imagemJogador = detalhesContainer ? detalhesContainer.querySelector('img') : null;
+
+    if (larguraJanela <= 768 && detalhesContainer && imagemJogador) {
+        detalhesContainer.style.flexDirection = 'column';
+        imagemJogador.style.order = -1;
+    } else if (detalhesContainer && imagemJogador) {
+        detalhesContainer.style.flexDirection = 'row';
+        imagemJogador.style.order = 0;
+    }
+};
+
+
+const ajustarBotoesOuSelect = () => {
+    const larguraJanela = window.innerWidth;
+    const botoesSection = document.getElementById('botoesSection');
+
+    if (larguraJanela <= 768) {
+        // Menos de 768px, usar o menu suspenso e adicionar classe
+        botoesSection.innerHTML = `
+            <label for="selecionar"></label>
+            <select id="selecionar" class="selectEstilizado" onchange="selecionarOpcao(this.value)">
+                <option value="" selected disabled>Selecione...</option>
+                <option value="MASCULINO">Masculino</option>
+                <option value="FEMININO">Feminino</option>
+                <option value="TODOS">Ver Todos</option>
+            </select>
+        `;
+        // Adicione a classe para estilização
+        botoesSection.classList.add('menorSessao');
+    } else {
+        // Mais de 768px, usar os botões e remover classe
+        botoesSection.innerHTML = `
+            <button class="botoes-jog" onclick="filtrarJogadores('MASCULINO')">MASCULINO</button>
+            <button class="botoes-jog" onclick="filtrarJogadores('FEMININO')">FEMININO</button>
+            <button class="botoes-jog" onclick="filtrarJogadores('TODOS')">VER TODOS</button>
+        `;
+        // Remova a classe
+        botoesSection.classList.remove('menorSessao');
+    }
+};
+
+const selecionarOpcao = (opcao) => {
+    // Função para ser chamada quando uma opção for selecionada no menu suspenso
+    filtrarJogadores(opcao);
+};
+
+
 const handleClick = (e) => {
     const artigo = e.target.closest('article');
 

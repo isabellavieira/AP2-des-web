@@ -1,11 +1,3 @@
-if (localStorage.getItem('coiso')){
-    document.getElementById('secreta').style.display = 'block';
-    document.getElementById('formulario').style.display = 'none';
-} else {
-    document.getElementById('secreta').style.display = 'none';
-    document.getElementById('formulario').style.display = 'block';
-}
-
 
 const verificaSenha = () => {
     const entrada = document.getElementById("campo-senha").value;
@@ -19,7 +11,3 @@ const verificaSenha = () => {
     }
 }
 
-const limpaCoiso = () => {
-    localStorage.removeItem('coiso');
-    window.location = '/';
-}
