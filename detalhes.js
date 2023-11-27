@@ -4,11 +4,10 @@ const verificarAcessoDetalhes = () => {
     if (!senhaInserida) {
         // Senha não foi inserida, redirecione para a página de login
         alert('Não foi possível completar a operação. Faça login primeiro.');
-        window.location.href = 'index.html'; // Substitua pelo caminho correto da página de login
+        window.location.href = 'index.html';
     }
 };
 
-// Chame esta função no início do seu arquivo detalhes.js
 verificarAcessoDetalhes();
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -20,7 +19,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Adicionar evento de clique para o botão "Voltar"
     btnVoltar.addEventListener('click', () => {
-        window.location.href = 'home.html'; // Substitua 'index.html' pelo caminho correto da sua página principal
+        window.location.href = 'home.html'; 
     });
 
     // Adicionar listener de redimensionamento
@@ -34,32 +33,38 @@ document.addEventListener('DOMContentLoaded', async () => {
     ajustarResponsividade(detalhesContainer);
     ajustarBotoesOuSelect();}
 });
-
 const exibirDetalhes = async () => {
     const detalhesContainer = document.getElementById('detalhes-content');
 
-    // Obter detalhes do localStorage
-    const detalhesAtleta = {
-        id: localStorage.getItem('id'),
-        nome: localStorage.getItem('nome_completo'),
-        nascimento: localStorage.getItem('nascimento'),
-        altura: localStorage.getItem('altura'),
-        descricao: localStorage.getItem('descricao'),
-        imagem: localStorage.getItem('imagem'),
-        // Adicione mais detalhes conforme necessário
-    };
+    try {
+        // Obter detalhes do localStorage
+        const detalhesAtleta = {
+            id: localStorage.getItem('id'),
+            nome: localStorage.getItem('nome_completo'),
+            nascimento: localStorage.getItem('nascimento'),
+            altura: localStorage.getItem('altura'),
+            descricao: localStorage.getItem('descricao'),
+            imagem: localStorage.getItem('imagem'),
+           
+        };
 
-    // Exibir detalhes do jogador
-    detalhesContainer.innerHTML = `
-        <img src="${detalhesAtleta.imagem}" alt="Imagem de ${detalhesAtleta.nome}">
-        <div id="detalhes-textos">
-            <h2>Nome: ${detalhesAtleta.nome}</h2>
-            <h3>Nascimento: ${detalhesAtleta.nascimento}</h3>
-            <h3>Altura: ${detalhesAtleta.altura}</h3>
-            <h4>Descrição: ${detalhesAtleta.descricao}</h4>
-        </div>
-    `;
+        // Exibir detalhes do jogador
+        detalhesContainer.innerHTML = `
+            <img src="${detalhesAtleta.imagem}" alt="Imagem de ${detalhesAtleta.nome}">
+            <div id="detalhes-textos">
+                <h2>Nome: ${detalhesAtleta.nome}</h2>
+                <h3>Nascimento: ${detalhesAtleta.nascimento}</h3>
+                <h3>Altura: ${detalhesAtleta.altura}</h3>
+                <h4>Descrição: ${detalhesAtleta.descricao}</h4>
+            </div>
+        `;
+    } catch (error) {
+        console.error('Erro ao obter detalhes:', error.message);
+        // Exibir mensagem de erro na tela
+        detalhesContainer.innerHTML = '<p>Ocorreu um erro ao obter os detalhes do jogador.</p>';
+    }
 };
+
 
 const handleClick = async (e) => {
     const artigo = e.target.closest('article');

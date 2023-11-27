@@ -2,6 +2,17 @@ const url = "https://botafogo-atletas.mange.li/all";
 const urlmasc = "https://botafogo-atletas.mange.li/masculino";
 const urlfem = "https://botafogo-atletas.mange.li/feminino";
 
+const verificarAcessoListagem = () => {
+    const senhaInserida = localStorage.getItem('coiso');
+
+    if (!senhaInserida) {
+        // Senha não foi inserida, redirecione para a página de login
+        alert('Não foi possível completar a operação. Faça login primeiro.');
+        window.location.href = 'index.html';
+    }
+};
+verificarAcessoListagem();
+
 const body = document.body;
 body.classList.add('flex-container');
 

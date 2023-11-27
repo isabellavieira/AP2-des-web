@@ -14,7 +14,7 @@ header {
 }
 
 section {
-    max-width: 400px;
+    width: 400px;
     margin: 20px auto;
     padding: 30px;
     background-color: #fff;
@@ -37,12 +37,16 @@ img {
     }
 
     img {
-        width: 150px; /* Ajuste conforme necessário */
+        width: 150px; 
     }
 
     section {
-        max-width: 100%;
-        padding: 20px;
+        width: 50%;
+        height: 70%;
+        padding: 30px;
+    }
+    #formulario {
+        padding: 5%;
     }
 }
 
