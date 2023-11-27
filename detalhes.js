@@ -21,17 +21,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     btnVoltar.addEventListener('click', () => {
         window.location.href = 'home.html'; 
     });
-
-    // Adicionar listener de redimensionamento
-    window.addEventListener('resize', () => {
-        ajustarResponsividade(detalhesContainer);
-        ajustarBotoesOuSelect();
-    });
     const ajustarResponsividade = (container) => {
-
     // Ajustar a responsividade inicial
     ajustarResponsividade(detalhesContainer);
-    ajustarBotoesOuSelect();}
+}
 });
 const exibirDetalhes = async () => {
     const detalhesContainer = document.getElementById('detalhes-content');

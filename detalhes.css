@@ -73,5 +73,23 @@ img {
         width: 100vw;
     }
 }
+#btnVoltar {
+    border-radius: 5px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    width: 70px;
+    padding: 10px;
+    cursor: pointer;
+    background-color: #333; /* Cor de fundo */
+    color: #fff; /* Cor do texto */
+    border: 1px solid #333; /* Borda */
+    transition: background-color 0.3s, color 0.3s; /* Adicionando uma transição suave */
+}
+
+#btnVoltar:hover {
+    transform: scale(1.08);
+    background-color: #c7c7c7;
+    color: #333; /* Alterando a cor do texto no hover */
+}
+
 
   

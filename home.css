@@ -83,11 +83,16 @@ article img {
     width: 70px;
     padding: 10px;
     cursor: pointer;
+    background-color: #333; /* Cor de fundo */
+    color: #fff; /* Cor do texto */
+    border: 1px solid #333; /* Borda */
+    transition: background-color 0.3s, color 0.3s; /* Adicionando uma transição suave */
 }
 
 #btnSair:hover {
     transform: scale(1.08);
     background-color: #c7c7c7;
+    color: #333; /* Alterando a cor do texto no hover */
 }
 
 /* Media queries for responsive columns */
@@ -134,21 +139,21 @@ article img {
 }
 
 .saiba-mais-btn {
-    background-color: #7a7a7a;
-    color: #fff;
-    text-shadow: #ffffff;
-    border: none;
-    padding: 10px 30px;
-    font-weight: bold;
-    cursor: pointer;
+    border-radius: 5px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 17px;
+    width: 100px;
+    padding: 10px;
+    cursor: pointer;
+    background-color:rgb(227, 227, 227); /* Cor de fundo */
+    color: #000000; /* Cor do texto */
+    transition: background-color 0.3s, color 0.3s; /* Adicionando uma transição suave */
 }
 
 .saiba-mais-btn:hover {
-    background-color: #555;
+    transform: scale(1.08);
+    background-color: #333;
+    color: #fff; /* Alterando a cor do texto no hover */
 }
-
 .botoes-jog:hover {
     transform: scale(1.08);
     background-color: #9c9c9c;
