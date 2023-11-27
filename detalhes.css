@@ -57,7 +57,6 @@ body {
   }
 
 
-  
   @media (min-width: 768px) {
   
     .info-container {
@@ -68,7 +67,7 @@ body {
       margin: 0 auto;
     }
     header{
-        width: 100dvw;
+        width: 100vw;
       }
 
   }
